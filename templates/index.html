@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+<head>
+<title>{% block title %}
+FarmBuddy
+{% endblock title %}</title>
+
+
+<link href="static/assets/css/style.css" rel="stylesheet">
+</head>
+{% block body %}
+<header id="header">
+  <div class="container">
+ <div id="logo" class="pull-left">
+      <a href="/">
+      <img src="/static/images/logo.png" class="scrollto" />
+    </a>
+    </div> 
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="{% block home %}
+        {% endblock home %}"><a href="/">Home</a></li>
+       
+<li><a href="/register">Farmer Register</a></li>
+<li><a href="/addfarming">Add Farming</a></li>
+<li><a href="/farmerdetails">Farmer Details</a></li>
+<li><a href="/agroproducts">Agro Products</a></li>
+<li><a href="/triggers">Records</a></li>
+
+     
+  
+
+ 
+
+  {% if current_user.is_authenticated  %}
+        <li class="buy-tickets"><a href="">Welcome {{current_user.username}}</a></li>
+          <li class="buy-tickets"><a href="/logout">Logout</a></li>
+        {% else %}
+        <li class="buy-tickets"><a href="/signup">Signin</a></li>
+      
+        {% endif %}
+      </ul>
+    </nav><!-- #nav-menu-container -->
+  </div>
+</header><!-- End Header -->
+
+<section id="intro">
+  <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
+    <h1 class="mb-4 pb-0">SELL AGRO PRODUCTS AND BUY  </span> </h1>
+    <p class="mb-4 pb-0"> A Step Towards Profitable and Sustainable Farming</p>
+  
+    <a href="/agroproducts" class="about-btn scrollto">AGRO PRODUCTS</a>
+  </div>
+</section> <!--End Intro Section-->
+<main id="main"> 
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+     
+    </div>
+
+    <div class="container">
+   
+      <div class="credits">
+      <br>
+        Developed by <a href="/">priyulll</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+{% endblock body %}
